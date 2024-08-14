@@ -13,6 +13,7 @@ import {
 import Modal from "./Modal";
 import DeleteConfirm from "./DeleteConfirm";
 import ButtonLink from "./Button/ButtonLink";
+import EmptyUsers from "./EmptyUsers";
 
 const UserTable = () => {
   const navigate = useNavigate();
@@ -22,12 +23,6 @@ const UserTable = () => {
   const [showDeleteConfirmationModal, setShowDeleteConfirmationModal] =
     useState(false);
   const [selectedUserToDelete, setSelectedUserToDelete] = useState(null);
-
-  //   const filterUser = (userId) => {
-  //     const filteredUsers = users.filter((user) => user.id !== userId);
-  //     setUsers(filteredUsers);
-  //     setShowDeleteConfirmationModal(false);
-  //   };
 
   const handleShowUserDetail = (userId) => {
     navigate(`/details`, { state: { userId: userId } });
@@ -74,7 +69,7 @@ const UserTable = () => {
   };
 
   useEffect(() => {
-    handleFetchUsers();
+    // handleFetchUsers();
   }, []);
 
   return loadingUsers ? (
@@ -87,7 +82,7 @@ const UserTable = () => {
       >
         <DeleteConfirm
           loadingDelete={loadingDelete}
-          confirmDelete={() => handleDeleteUserById(selectedUserToDelete)}
+          confirmDelete={() => handleDeleteUserById()}
           cancelDelete={() => setShowDeleteConfirmationModal((prev) => !prev)}
         />
       </Modal>
@@ -97,7 +92,7 @@ const UserTable = () => {
             <h2 className="text-md font-semibold text-gray-900 pb-2 text-wrap">
               Users
             </h2>
-            <p className="text-gray-800 font-light text-sm">
+            <p className="text-gray-800 font-light text-sm text-wrap w-[90%]">
               A list of all the users in your account including their name,
               address, gender, birthday date, and input date.
             </p>
@@ -109,45 +104,47 @@ const UserTable = () => {
             className="h-[40px] px-3 bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-md before:ease-in-out after:ease-in-out shadow-blue-300 shadow-md"
           />
         </div>
-        <table className="table-auto rounded mt-8">
-          <thead className="bg-white rounded border-b-[1px]">
-            <tr className="text-gray-950 text-left">
-              <th className="px-2 py-3 text-sm text-center">
-                <p className="font-semibold">No</p>
-              </th>
-              <th className="px-4 py-2 text-sm">
-                <p className="font-semibold">Name</p>
-              </th>
-              <th className="px-4 py-2 text-sm">
-                <p className="font-semibold">Address</p>
-              </th>
-              <th className="px-4 py-2 text-sm">
-                <p className="font-semibold">Gender</p>
-              </th>
-              <th className="px-4 py-2 text-sm">
-                <p className="font-semibold">Birthday</p>
-              </th>
-              <th className="px-4 py-2 text-sm">
-                <p className="font-semibold">Input Date</p>
-              </th>
-              <th className="px-4 py-2 text-sm">
-                <p className="font-semibold">Operations</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {users &&
-              users.map((user, i) => (
+        {users ? (
+          <table className="table-auto rounded mt-8">
+            <thead className="bg-white rounded border-b-[1px]">
+              <tr className="text-gray-950 text-left">
+                <th className="px-2 py-3 text-sm text-center">
+                  <p className="font-semibold">No</p>
+                </th>
+                <th className="px-4 py-2 text-sm">
+                  <p className="font-semibold">Name</p>
+                </th>
+                <th className="px-4 py-2 text-sm">
+                  <p className="font-semibold">Address</p>
+                </th>
+                <th className="px-4 py-2 text-sm">
+                  <p className="font-semibold">Gender</p>
+                </th>
+                <th className="px-4 py-2 text-sm">
+                  <p className="font-semibold">Birthday</p>
+                </th>
+                <th className="px-4 py-2 text-sm">
+                  <p className="font-semibold">Input Date</p>
+                </th>
+                <th className="px-4 py-2 text-sm">
+                  <p className="font-semibold">Operations</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user, i) => (
                 <tr
                   key={`userKey-${user.id}`}
                   className={`bg-white text-gray-600 text-left border-b-[1px]`}
                 >
                   <td className=" px-4 py-2">{i + 1}</td>
                   <td className=" px-4 py-2 text-black font-normal">
-                    <p className="text-sm">{user.name}</p>
+                    <p className="text-sm truncate w-[200px]">{user.name}</p>
                   </td>
                   <td className=" px-4 py-2">
-                    <p className="text-sm text-gray-500">{user.address}</p>
+                    <p className="text-sm text-gray-500 truncate w-[300px]">
+                      {user.address}
+                    </p>
                   </td>
                   <td className=" px-4 py-2 text-center">
                     <p className="text-sm text-gray-500">
@@ -160,7 +157,7 @@ const UserTable = () => {
                     </p>
                   </td>
                   <td className=" px-4 py-2">
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-500 truncate w-[150px]">
                       {getFormattedInputDateString(user.input_date)}
                     </p>
                   </td>
@@ -186,8 +183,11 @@ const UserTable = () => {
                   </td>
                 </tr>
               ))}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        ) : (
+          <EmptyUsers />
+        )}
       </div>
     </div>
   );

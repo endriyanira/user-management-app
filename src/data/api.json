@@ -49,12 +49,20 @@
       "input_date": "2024-08-14T09:58:23.364Z"
     },
     {
-      "id": "d88c",
-      "name": "Keiko Aaliya Hernowo Putri",
-      "address": "JL Anggrek Vanda, BSD",
+      "id": "001d",
+      "name": "Yandi Mariana Kondakh",
+      "address": "Jl Rawamangun Muka II Blok E 51 RT 006 RW 012",
       "gender": "1",
-      "birth_date": "2001-09-12T17:00:00.000Z",
-      "input_date": "2024-08-14T10:23:37.283Z"
+      "birth_date": "1978-07-12T17:00:00.000Z",
+      "input_date": "2024-08-14T11:42:09.857Z"
+    },
+    {
+      "id": "e920",
+      "name": "Salsabila Kaulika Rinalda Putri Giri",
+      "address": "Jl Gg Galunggung, Jatinegara Indah, Jakarta Timur",
+      "gender": "1",
+      "birth_date": "2024-08-04T17:00:00.000Z",
+      "input_date": "2024-08-14T11:45:25.049Z"
     }
   ]
 }
