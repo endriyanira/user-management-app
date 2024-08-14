@@ -11,6 +11,7 @@ import ButtonLink from "./Button/ButtonLink";
 import ButtonLoading from "./Button/ButtonLoading";
 import TextInput from "./TextInput/TextInput";
 import RadioInput from "./RadioInput/RadioInput";
+import TextArea from "./TextArea/TextArea";
 
 const AddUserForm = () => {
   const navigate = useNavigate();
@@ -80,7 +81,7 @@ const AddUserForm = () => {
           />
 
           {/* Address */}
-          <TextInput
+          <TextArea
             label={"Address"}
             htmlFor={"grid-address"}
             placeholder={"Your address"}

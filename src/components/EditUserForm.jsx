@@ -13,6 +13,7 @@ import Loading from "./Loading/Loading";
 import EmptyData from "./EmptyData";
 import TextInput from "./TextInput/TextInput";
 import RadioInput from "./RadioInput/RadioInput";
+import TextArea from "./TextArea/TextArea";
 
 const EditUserForm = () => {
   const navigate = useNavigate();
@@ -110,7 +111,7 @@ const EditUserForm = () => {
             />
 
             {/* Address */}
-            <TextInput
+            <TextArea
               label={"Address"}
               htmlFor={"grid-address"}
               placeholder={"Your address"}
