@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { IoArrowBack } from "react-icons/io5";
 
 import { convertDateToISO } from "../utils";
 import CustomDate from "./CustomDate";
@@ -8,6 +9,7 @@ import ButtonLink from "./Button/ButtonLink";
 import Button from "./Button/Button";
 
 const EditUserForm = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const userId = location.state.userId;
   const [loadingFetchUser, setLoadingFetchUser] = useState(false);
@@ -78,6 +80,14 @@ const EditUserForm = () => {
   ) : (
     <div className="add form container card w-full h-full justify-center flex px-8">
       <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
+        <button className="pb-5" onClick={() => navigate("/")}>
+          <IoArrowBack size={20} />
+        </button>
+        <h3 className="text-lg leading-6 font-medium text-gray-900 mb-8">
+          Edit User Info
+        </h3>
+
+        {/* </div> */}
         <form className="w-full max-w-lg" onSubmit={handleSubmit}>
           {/* Name */}
           <div className="flex flex-wrap -mx-3 mb-6">

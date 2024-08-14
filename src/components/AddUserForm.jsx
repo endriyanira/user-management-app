@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { IoArrowBack } from "react-icons/io5";
 import axios from "axios";
 
 import CustomDate from "./CustomDate";
@@ -7,6 +9,8 @@ import ButtonLink from "./Button/ButtonLink";
 import { convertDateToISO } from "../utils";
 
 const AddUserForm = () => {
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState({
     name: "",
     address: "",
@@ -47,6 +51,12 @@ const AddUserForm = () => {
   return (
     <div className="add form container card w-full h-full justify-center flex px-8">
       <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
+        <button className="pb-5" onClick={() => navigate("/")}>
+          <IoArrowBack size={20} />
+        </button>
+        <h3 className="text-lg leading-6 font-medium text-gray-900 mb-8">
+          Add User
+        </h3>
         <form className="w-full max-w-lg" onSubmit={handleSubmit}>
           {/* Name */}
           <div className="flex flex-wrap -mx-3 mb-6">
