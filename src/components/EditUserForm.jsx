@@ -7,6 +7,7 @@ import { convertDateToISO } from "../utils";
 import CustomDate from "./CustomDate";
 import ButtonLink from "./Button/ButtonLink";
 import Button from "./Button/Button";
+import ButtonLoading from "./Button/ButtonLoading";
 
 const EditUserForm = () => {
   const navigate = useNavigate();
@@ -65,7 +66,10 @@ const EditUserForm = () => {
         data: userData,
       });
       const data = response.data;
-      setLoadingSubmit(false);
+      setTimeout(() => {
+        navigate("/");
+        setLoadingSubmit(false);
+      }, 500);
     } catch (error) {
       setLoadingSubmit(false);
       console.error("Error while updating a user: ", error);
@@ -195,7 +199,7 @@ const EditUserForm = () => {
                 path={"/"}
               />
               {loadingSubmit ? (
-                <ButtonLink
+                <ButtonLoading
                   type={"button"}
                   text={"Submit"}
                   className="h-[40px] px-3 bg-blue-500  text-white font-medium rounded-md before:ease-in-out after:ease-in-out "
