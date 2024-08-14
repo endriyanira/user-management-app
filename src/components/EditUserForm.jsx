@@ -38,11 +38,35 @@ const EditUserForm = () => {
         method: "GET",
       });
       const data = response.data;
-      setUserData(data);
+      setUserData({
+        ...userData,
+        name: data.name,
+        address: data.address,
+        gender: data.gender,
+        birth_date: data.birth_date,
+        input_date: convertDateToISO(new Date()),
+      });
       setLoadingFetchUser(false);
     } catch (error) {
       setLoadingFetchUser(false);
       console.error("Error while fetching user: ", error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoadingSubmit(true);
+    try {
+      const response = await axios({
+        url: `http://localhost:3030/users/${userId}`,
+        method: "PATCH",
+        data: userData,
+      });
+      const data = response.data;
+      setLoadingSubmit(false);
+    } catch (error) {
+      setLoadingSubmit(false);
+      console.error("Error while updating a user: ", error);
     }
   };
 
@@ -54,7 +78,7 @@ const EditUserForm = () => {
   ) : (
     <div className="add form container card w-full h-full justify-center flex px-8">
       <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
-        <form className="w-full max-w-lg">
+        <form className="w-full max-w-lg" onSubmit={handleSubmit}>
           {/* Name */}
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
