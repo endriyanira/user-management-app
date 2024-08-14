@@ -40,15 +40,19 @@ const UserTable = () => {
   const handleDeleteUserById = async () => {
     setLoadingDelete(true);
     try {
-      await axios({
+      const response = await axios({
         url: `http://localhost:3030/users/${selectedUserToDelete}`,
         method: "DELETE",
       });
-      setLoadingDelete(false);
+      if (response.status === 200) {
+        notify("success delete user", "success");
+      }
       setShowDeleteConfirmationModal(false);
       handleFetchUsers();
+      setLoadingDelete(false);
     } catch (error) {
       console.error("Error while delete user: ", error);
+      notify("failed while deleting user", "error");
       setLoadingDelete(false);
     }
   };

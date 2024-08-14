@@ -121,14 +121,6 @@
       "input_date": "2024-08-14T12:28:33.250Z"
     },
     {
-      "id": "3a1a",
-      "name": "Nugraha Dwitya Ramadhan",
-      "address": "Rasamala No. 12",
-      "gender": "0",
-      "birth_date": "2024-07-27T17:00:00.000Z",
-      "input_date": "2024-08-14T12:29:45.312Z"
-    },
-    {
       "id": "a562",
       "name": "Nugraha Dwitya Ramadhan",
       "address": "Rawamangun Muka II Blok E 51",
@@ -159,30 +151,6 @@
       "gender": "1",
       "birth_date": "2024-07-29T17:00:00.000Z",
       "input_date": "2024-08-14T12:31:56.235Z"
-    },
-    {
-      "id": "94ea",
-      "name": "Endriyani Rahayu Ayu",
-      "address": "Rawamangun Muka II Blok E 51",
-      "gender": "1",
-      "birth_date": "2024-07-29T17:00:00.000Z",
-      "input_date": "2024-08-14T12:35:02.683Z"
-    },
-    {
-      "id": "06e3",
-      "name": "Endriyani Rahayu",
-      "address": "Rawamangun Muka II Blok E 51",
-      "gender": "1",
-      "birth_date": "2024-07-27T17:00:00.000Z",
-      "input_date": "2024-08-14T12:37:19.424Z"
-    },
-    {
-      "id": "9ce7",
-      "name": "Endriyani Rahayu",
-      "address": "Rawamangun Muka II Blok E 51",
-      "gender": "1",
-      "birth_date": "2024-07-28T17:00:00.000Z",
-      "input_date": "2024-08-14T12:38:02.164Z"
     }
   ]
 }
