@@ -15,6 +15,7 @@ import Modal from "./Modal";
 import DeleteConfirm from "./DeleteConfirm";
 import ButtonLink from "./Button/ButtonLink";
 import EmptyUsers from "./EmptyUsers";
+import Loading from "./Loading/Loading";
 
 const UserTable = () => {
   const navigate = useNavigate();
@@ -78,9 +79,7 @@ const UserTable = () => {
     handleFetchUsers();
   }, []);
 
-  return loadingUsers ? (
-    <div>Loading...</div>
-  ) : (
+  return (
     <div className="card w-full h-full justify-center flex px-8">
       <Modal
         shouldShow={showDeleteConfirmationModal}
@@ -110,8 +109,8 @@ const UserTable = () => {
             className="h-[40px] px-3 bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-md before:ease-in-out after:ease-in-out shadow-blue-300 shadow-md"
           />
         </div>
-        {loadingUsers && <div> Loading...</div>}
-        {users ? (
+        {loadingUsers && <Loading />}
+        {!loadingUsers && users && (
           <table className="table-auto rounded mt-8">
             <thead className="bg-white rounded border-b-[1px]">
               <tr className="text-gray-950 text-left">
@@ -193,9 +192,8 @@ const UserTable = () => {
               ))}
             </tbody>
           </table>
-        ) : (
-          <EmptyUsers />
         )}
+        {!users && <EmptyUsers />}
       </div>
     </div>
   );

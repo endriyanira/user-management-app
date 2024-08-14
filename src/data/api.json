@@ -6,19 +6,19 @@
       "address": "Rawamangun Muka II Blok E 51",
       "gender": "1",
       "birth_date": "2001-04-09T17:00:00.000Z",
-      "input_date": "2024-08-14T12:50:42.636Z"
+      "input_date": "2024-08-14T13:01:26.790Z"
     },
     {
       "id": "89a2",
-      "name": "Endradi Wulandari",
+      "name": "Endradi Wulandari Wulin",
       "address": "Rawamangun Muka II Blok E 51 RT 006 RW 012",
       "gender": "1",
       "birth_date": "2004-04-27T17:00:00.000Z",
-      "input_date": "2024-08-14T12:50:53.273Z"
+      "input_date": "2024-08-14T13:01:54.773Z"
     },
     {
       "id": "ac29",
-      "name": "Endrina Adilah Shabirah",
+      "name": "Endrina Adilah Shabirah Adilah",
       "address": "Rawamangun Muka II Blok E 51",
       "gender": "1",
       "birth_date": "2024-07-29T17:00:00.000Z",
@@ -33,14 +33,6 @@
       "input_date": "2024-08-14T10:22:18.716Z"
     },
     {
-      "id": "d8f6",
-      "name": "Putri Larasati",
-      "address": "Tanah Tinggi",
-      "gender": "1",
-      "birth_date": "2000-09-12T17:00:00.000Z",
-      "input_date": "2024-08-14T09:57:51.416Z"
-    },
-    {
       "id": "0a1f",
       "name": "Siti Mawaddah Ngiu",
       "address": "Jatinegara Indah Gg Galunggung",
@@ -51,10 +43,10 @@
     {
       "id": "4f74",
       "name": "Hanifah Anisa Putri",
-      "address": "Jakarta Pusat",
+      "address": "",
       "gender": "1",
       "birth_date": "2001-10-19T17:00:00.000Z",
-      "input_date": "2024-08-14T11:56:21.807Z"
+      "input_date": "2024-08-14T12:58:31.103Z"
     },
     {
       "id": "b321",
@@ -73,28 +65,20 @@
       "input_date": "2024-08-14T12:53:06.805Z"
     },
     {
-      "id": "9393",
-      "name": "Endriyani Rahayu",
-      "address": "Rawamangun Muka II E 51",
-      "gender": "1",
-      "birth_date": "2024-07-28T17:00:00.000Z",
-      "input_date": "2024-08-14T12:56:57.482Z"
-    },
-    {
-      "id": "834c",
+      "id": "cbed",
       "name": "Endradi Wulandari",
       "address": "Rawamangun Muka II Blok E 51",
       "gender": "1",
-      "birth_date": "2024-07-28T17:00:00.000Z",
-      "input_date": "2024-08-14T12:57:14.842Z"
+      "birth_date": "2024-07-30T17:00:00.000Z",
+      "input_date": "2024-08-14T13:22:04.162Z"
     },
     {
-      "id": "6e90",
+      "id": "1c58",
       "name": "Endriyani Rahayu",
-      "address": "",
-      "gender": null,
-      "birth_date": null,
-      "input_date": "2024-08-14T12:57:24.258Z"
+      "address": "Rawamangun Muka II Blok E 51",
+      "gender": "1",
+      "birth_date": "2024-07-27T17:00:00.000Z",
+      "input_date": "2024-08-14T13:22:17.745Z"
     }
   ]
 }

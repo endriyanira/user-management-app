@@ -19,7 +19,6 @@ const EditUserForm = () => {
     address: "",
     gender: null,
     birth_date: null,
-    input_date: convertDateToISO(new Date()),
   });
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [showBirthdayDatePicker, setShowBirthdayDatePicker] = useState(false);
@@ -47,7 +46,6 @@ const EditUserForm = () => {
         address: data.address,
         gender: data.gender,
         birth_date: data.birth_date,
-        input_date: convertDateToISO(new Date()),
       });
       setLoadingFetchUser(false);
     } catch (error) {

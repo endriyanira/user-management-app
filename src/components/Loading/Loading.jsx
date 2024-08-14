@@ -1,11 +1,11 @@
 import React from "react";
 
-const ButtonLoading = ({ className, text }) => {
+const Loading = () => {
   return (
-    <button type="button" className={className} disabled>
-      <div className="flex flex-row gap-1">
+    <div className="card w-full h-full justify-center flex flex-row items-center gap-2">
+      <div className="flex flex-col py-10 bg-white px-4 my-20 rounded-xl">
         <svg
-          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+          className="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-700"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -24,10 +24,10 @@ const ButtonLoading = ({ className, text }) => {
             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
           ></path>
         </svg>
-        <p className="text-sm">{text}</p>
       </div>
-    </button>
+      <p className="text-md text-gray-500 font-medium">Loading...</p>
+    </div>
   );
 };
 
-export default ButtonLoading;
+export default Loading;

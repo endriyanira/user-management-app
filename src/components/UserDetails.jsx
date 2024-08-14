@@ -40,7 +40,11 @@ const UserDetails = () => {
     fetchUserDetails();
   }, []);
   return loadingFetchUser ? (
-    <div>Loading...</div>
+    <div className="loading container card w-full h-full justify-center flex px-8">
+      <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
+        Loading...
+      </div>
+    </div>
   ) : (
     <div className="adiv form container card w-full h-full justify-center flex px-8">
       <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
@@ -72,13 +76,14 @@ const UserDetails = () => {
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <div className="text-sm font-medium text-gray-500">Gender</div>
               <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {getGender(userData.gender)}
+                {userData.gender && getGender(userData.gender)}
               </div>
             </div>
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <div className="text-sm font-medium text-gray-500">Birthday</div>
               <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {getBirthdayDateFormat(userData.birth_date)}
+                {userData.birth_date &&
+                  getBirthdayDateFormat(userData.birth_date)}
               </div>
             </div>
           </div>
