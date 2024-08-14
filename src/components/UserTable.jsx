@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
 import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { VscOpenPreview } from "react-icons/vsc";
@@ -28,13 +28,25 @@ const UserTable = () => {
     setSelectedUserToDelete(userId);
   };
 
-  useEffect(() => {
+  const handleFetchUsers = async () => {
     setLoadingUsers(true);
-    setUsers(data.users);
-    setTimeout(() => {
-      setLoadingUsers(false);
-    }, 500);
+    try {
+      const response = await axios({
+        url: "http://localhost:3030/users",
+        method: "GET",
+      });
+      const data = response.data;
+      setUsers(data);
+    } catch (error) {
+      console.error("Error while fetching users: ", error);
+    }
+    setLoadingUsers(false);
+  };
+
+  useEffect(() => {
+    handleFetchUsers();
   }, []);
+
   return loadingUsers ? (
     <div>Loading...</div>
   ) : (

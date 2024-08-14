@@ -49,14 +49,6 @@
       "input_date": "2024-01-03 14:00:00"
     },
     {
-      "id": 6,
-      "name": "Nugraha Dwitya Ramadhan",
-      "address": "Jalan Rasalama",
-      "gender": 0,
-      "birth_date": "1995-02-27",
-      "input_date": "2024-01-03 14:00:00"
-    },
-    {
       "id": 7,
       "name": "Nugraha Dwitya Ramadhan",
       "address": "Jalan Rasalama",
@@ -66,6 +58,14 @@
     },
     {
       "id": 8,
+      "name": "Nugraha Dwitya Ramadhan",
+      "address": "Jalan Rasalama",
+      "gender": 0,
+      "birth_date": "1995-02-27",
+      "input_date": "2024-01-03 14:00:00"
+    },
+    {
+      "id": 9,
       "name": "Nugraha Dwitya Ramadhan",
       "address": "Jalan Rasalama",
       "gender": 0,
