@@ -8,6 +8,7 @@ import data from "../data/api.json";
 import { getGender } from "../utils";
 import Modal from "./Modal";
 import DeleteConfirm from "./DeleteConfirm";
+import ButtonLink from "./Button/ButtonLink";
 
 const UserTable = () => {
   const [loadingUsers, setLoadingUsers] = useState(false);
@@ -58,14 +59,12 @@ const UserTable = () => {
               address, gender, birthday date, and input date.
             </p>
           </div>
-          <Link to={"/add-user"}>
-            <button
-              type="button"
-              className="h-[40px] px-3 bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-md before:ease-in-out after:ease-in-out shadow-blue-300 shadow-md"
-            >
-              <p className="text-sm">Add user</p>
-            </button>
-          </Link>
+          <ButtonLink
+            path={"/add-user"}
+            text={"Add user"}
+            type="button"
+            className="h-[40px] px-3 bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-md before:ease-in-out after:ease-in-out shadow-blue-300 shadow-md"
+          />
         </div>
         <table className="table-auto rounded mt-8">
           <thead className="bg-white rounded border-b-[1px]">

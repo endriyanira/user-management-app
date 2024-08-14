@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CustomDate from "./CustomDate";
+import Button from "./Button/Button";
+import ButtonLink from "./Button/ButtonLink";
 
 const AddUserForm = () => {
   const [userData, setUserData] = useState({
@@ -97,7 +99,7 @@ const AddUserForm = () => {
           </div>
 
           {/* Birth Date */}
-          <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-8">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -109,6 +111,24 @@ const AddUserForm = () => {
                 handleChange={handleBirthdayDate}
                 show={showBirthdayDatePicker}
                 handleClose={setShowBirthdayDatePicker}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-wrap  -mx-3 mb-3">
+            <div className="w-full px-3 flex justify-end gap-2">
+              <ButtonLink
+                type={"button"}
+                text={"Cancel"}
+                className={
+                  "h-[40px] px-3 hover:bg-gray-100 text-gray-700 font-medium rounded-md before:ease-in-out after:ease-in-out"
+                }
+                path={"/"}
+              />
+              <Button
+                type={"submit"}
+                text={"Submit"}
+                className="h-[40px] px-3 bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-md before:ease-in-out after:ease-in-out shadow-blue-300 shadow-md"
               />
             </div>
           </div>
