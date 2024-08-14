@@ -42,7 +42,6 @@ const AddUserForm = () => {
         method: "POST",
         data: userData,
       });
-      console.log(response);
       if (response.status === 201) {
         notify("Success add new user", "success");
       }
