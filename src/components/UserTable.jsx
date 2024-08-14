@@ -29,6 +29,9 @@ const UserTable = () => {
   //     setShowDeleteConfirmationModal(false);
   //   };
 
+  const handleShowUserDetail = (userId) => {
+    navigate(`/details`, { state: { userId: userId } });
+  };
   const handleEditUser = (userId) => {
     navigate(`/edit-user/`, { state: { userId: userId } });
   };
@@ -162,7 +165,10 @@ const UserTable = () => {
                     </p>
                   </td>
                   <td className=" px-4 py-2 flex flex-row gap-3 items-center justify-center">
-                    <button className="p-2">
+                    <button
+                      className="p-2"
+                      onClick={() => handleShowUserDetail(user.id)}
+                    >
                       <VscOpenPreview size={20} color="blue" />
                     </button>
                     <button

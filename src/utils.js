@@ -1,5 +1,5 @@
 export const getGender = (g) => {
-  return g === 0 ? "P" : "W";
+  return g === "0" ? "Male" : "Female";
 };
 
 export const convertDateToISO = (date) => {
