@@ -1,16 +1,8 @@
 {
   "users": [
     {
-      "id": "5023",
-      "name": "Endriyani Rahayu",
-      "address": "Rawamangun Muka II Blok E 51",
-      "gender": "1",
-      "birth_date": "2001-04-09T17:00:00.000Z",
-      "input_date": "2024-08-14T13:01:26.790Z"
-    },
-    {
       "id": "89a2",
-      "name": "Endradi Wulandari Wulin",
+      "name": "Endradi Wulandari",
       "address": "Rawamangun Muka II Blok E 51 RT 006 RW 012",
       "gender": "1",
       "birth_date": "2004-04-27T17:00:00.000Z",
@@ -51,7 +43,7 @@
     {
       "id": "b321",
       "name": "Rizma Chaerani Heidy Putri",
-      "address": "Cileungsi",
+      "address": "Cileungsi, jawa Barat",
       "gender": "1",
       "birth_date": "2001-07-09T17:00:00.000Z",
       "input_date": "2024-08-14T11:57:18.909Z"

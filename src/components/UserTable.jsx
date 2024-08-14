@@ -14,7 +14,7 @@ import {
 import Modal from "./Modal";
 import DeleteConfirm from "./DeleteConfirm";
 import ButtonLink from "./Button/ButtonLink";
-import EmptyUsers from "./EmptyUsers";
+import EmptyData from "./EmptyData";
 import Loading from "./Loading/Loading";
 
 const UserTable = () => {
@@ -193,7 +193,7 @@ const UserTable = () => {
             </tbody>
           </table>
         )}
-        {!users && <EmptyUsers />}
+        {!users && <EmptyData message={"No Users Data."} />}
       </div>
     </div>
   );
