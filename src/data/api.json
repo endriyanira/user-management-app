@@ -3,7 +3,7 @@
     {
       "id": "89a2",
       "name": "Endradi Wulandari",
-      "address": "Rawamangun Muka II Blok E 51 RT 006 RW 012",
+      "address": "Rawamangun Muka II Blok E 51 RT 006 RW 012, Rawamangun, Jakarta Timur",
       "gender": "1",
       "birth_date": "2004-04-27T17:00:00.000Z",
       "input_date": "2024-08-14T13:01:54.773Z"
@@ -15,14 +15,6 @@
       "gender": "1",
       "birth_date": "2024-07-29T17:00:00.000Z",
       "input_date": "2024-08-14T09:09:00.260Z"
-    },
-    {
-      "id": "d825",
-      "name": "Nugraha Dwitya Ramadhan",
-      "address": "Rasamalaaaa",
-      "gender": "0",
-      "birth_date": "1995-02-26T17:00:00.000Z",
-      "input_date": "2024-08-14T10:22:18.716Z"
     },
     {
       "id": "0a1f",
@@ -57,30 +49,6 @@
       "input_date": "2024-08-14T12:53:06.805Z"
     },
     {
-      "id": "01d6",
-      "name": "Endriyani Rahayu",
-      "address": "Rawamangun Muka II Blok E 51",
-      "gender": "1",
-      "birth_date": "2024-07-28T17:00:00.000Z",
-      "input_date": "2024-08-14T13:55:43.459Z"
-    },
-    {
-      "id": "0f82",
-      "name": "Endriyani Rahayu",
-      "address": "Rawamangun Muka II Blok E 51",
-      "gender": "1",
-      "birth_date": "2024-07-28T17:00:00.000Z",
-      "input_date": "2024-08-14T13:56:14.143Z"
-    },
-    {
-      "id": "ea2c",
-      "name": "Endriyani Rahayu",
-      "address": "Rawamangun Muka II Blok E 51",
-      "gender": "1",
-      "birth_date": "2024-07-27T17:00:00.000Z",
-      "input_date": "2024-08-14T14:21:21.432Z"
-    },
-    {
       "id": "e184",
       "name": "Nugraha Dwitya Ramadhan",
       "address": "Rasamala No. 12",
@@ -88,6 +56,22 @@
       "birth_date": "1995-02-26T17:00:00.000Z",
       "input_date": "2024-08-14T14:23:12.824Z",
       "undefined": "0"
+    },
+    {
+      "id": "e70f",
+      "name": "Putri Larasati Larassoooooo",
+      "address": "",
+      "gender": "1",
+      "birth_date": "2000-09-12T17:00:00.000Z",
+      "input_date": "2024-08-14T14:56:41.306Z"
+    },
+    {
+      "id": "6ee4",
+      "name": "Nugraha Dwitya Ramadhan Danu",
+      "address": "JL Rasamala, Menteng Dalam, Jakarta Selatan, DKI Jakarta",
+      "gender": "0",
+      "birth_date": "1995-02-27T17:00:00.000Z",
+      "input_date": "2024-08-14T14:57:57.536Z"
     }
   ]
 }

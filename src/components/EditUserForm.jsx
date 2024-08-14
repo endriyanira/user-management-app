@@ -4,6 +4,7 @@ import axios from "axios";
 import { IoArrowBack } from "react-icons/io5";
 
 import { convertDateToISO, notify } from "../utils";
+import { genderList } from "../data/constants";
 import CustomDate from "./CustomDate";
 import ButtonLink from "./Button/ButtonLink";
 import Button from "./Button/Button";
@@ -12,15 +13,6 @@ import Loading from "./Loading/Loading";
 import EmptyData from "./EmptyData";
 import TextInput from "./TextInput/TextInput";
 import RadioInput from "./RadioInput/RadioInput";
-
-const genderList = [
-  {
-    id: 1,
-    name: "Male",
-    value: "0",
-  },
-  { id: 2, name: "Female", value: "1" },
-];
 
 const EditUserForm = () => {
   const navigate = useNavigate();
@@ -37,8 +29,6 @@ const EditUserForm = () => {
   const [showBirthdayDatePicker, setShowBirthdayDatePicker] = useState(false);
 
   const handleChangeData = (e, key) => {
-    console.log(key);
-    console.log(e.target.value);
     setUserData({ ...userData, [key]: e.target.value });
   };
 
@@ -115,7 +105,7 @@ const EditUserForm = () => {
               placeholder={"Your name"}
               value={userData.name}
               handleOnChange={handleChangeData}
-              key={"name"}
+              name="name"
               required={true}
             />
 
@@ -126,7 +116,7 @@ const EditUserForm = () => {
               placeholder={"Your address"}
               value={userData.address}
               handleOnChange={handleChangeData}
-              key={"name"}
+              name={"address"}
               required={false}
             />
 

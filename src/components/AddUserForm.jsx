@@ -4,10 +4,13 @@ import { IoArrowBack } from "react-icons/io5";
 import axios from "axios";
 
 import { convertDateToISO, notify } from "../utils";
+import { genderList } from "../data/constants";
 import CustomDate from "./CustomDate";
 import Button from "./Button/Button";
 import ButtonLink from "./Button/ButtonLink";
 import ButtonLoading from "./Button/ButtonLoading";
+import TextInput from "./TextInput/TextInput";
+import RadioInput from "./RadioInput/RadioInput";
 
 const AddUserForm = () => {
   const navigate = useNavigate();
@@ -67,77 +70,33 @@ const AddUserForm = () => {
         </h3>
         <form className="w-full max-w-lg" onSubmit={handleSubmit}>
           {/* Name */}
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-name"
-              >
-                Name <span className="text-red-600">*</span>
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-name"
-                type="text"
-                placeholder="Endriyani"
-                onChange={(e) => handleChangeData(e, "name")}
-                required
-              />
-            </div>
-          </div>
+          <TextInput
+            label={"Name"}
+            htmlFor={"grid-name"}
+            placeholder={"Your name"}
+            handleOnChange={handleChangeData}
+            name="name"
+            required={true}
+          />
 
           {/* Address */}
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-address"
-              >
-                Address
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-address"
-                type="text"
-                placeholder="Rawamangun"
-                onChange={(e) => handleChangeData(e, "address")}
-              />
-            </div>
-          </div>
+          <TextInput
+            label={"Address"}
+            htmlFor={"grid-address"}
+            placeholder={"Your address"}
+            handleOnChange={handleChangeData}
+            name={"address"}
+            required={false}
+          />
 
           {/* Gender */}
-          <div className="flex flex-wrap -mx-3 mb-8">
-            <div className="w-full px-3">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-gender"
-              >
-                Gender
-              </label>
-              <div className="flex flex-row gap-4">
-                <label className="inline-flex items-center">
-                  <input
-                    type="radio"
-                    className="form-radio"
-                    name="gender"
-                    value={0}
-                    onClick={(e) => handleChangeData(e, "gender")}
-                  />
-                  <span className="ml-2">Male</span>
-                </label>
-                <label className="inline-flex items-center">
-                  <input
-                    type="radio"
-                    className="form-radio"
-                    name="gender"
-                    value={1}
-                    onClick={(e) => handleChangeData(e, "gender")}
-                  />
-                  <span className="ml-2">Female</span>
-                </label>
-              </div>
-            </div>
-          </div>
+          <RadioInput
+            label={"Gender"}
+            data={genderList}
+            name="gender"
+            handleOnClick={handleChangeData}
+            defaultCheckedVal={userData.gender}
+          />
 
           {/* Birth Date */}
           <div className="flex flex-wrap -mx-3 mb-8">

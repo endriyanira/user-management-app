@@ -7,7 +7,7 @@ const TextInput = ({
   placeholder,
   value,
   handleOnChange,
-  key,
+  name,
   required,
 }) => {
   return (
@@ -25,7 +25,7 @@ const TextInput = ({
           type="text"
           placeholder={placeholder}
           value={value}
-          onChange={(e) => handleOnChange(e, key)}
+          onChange={(e) => handleOnChange(e, name)}
           required={required}
         />
       </div>
