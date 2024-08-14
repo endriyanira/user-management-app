@@ -155,12 +155,13 @@ const UserTable = () => {
                   </td>
                   <td className=" px-4 py-2 text-center">
                     <p className="text-sm text-gray-500">
-                      {getGender(user.gender).toString()}
+                      {user.gender && getGender(user.gender).toString()}
                     </p>
                   </td>
                   <td className=" px-4 py-2">
                     <p className="text-sm text-gray-500">
-                      {getBirthdayDateFormat(user.birth_date)}
+                      {user.birth_date &&
+                        getBirthdayDateFormat(user.birth_date)}
                     </p>
                   </td>
                   <td className=" px-4 py-2">

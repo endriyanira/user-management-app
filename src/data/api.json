@@ -49,22 +49,6 @@
       "input_date": "2024-08-14T09:58:23.364Z"
     },
     {
-      "id": "001d",
-      "name": "Yandi Mariana Kondakh",
-      "address": "Jl Rawamangun Muka II Blok E 51 RT 006 RW 012",
-      "gender": "1",
-      "birth_date": "1978-07-12T17:00:00.000Z",
-      "input_date": "2024-08-14T11:42:09.857Z"
-    },
-    {
-      "id": "e920",
-      "name": "Salsabila Kaulika Rinalda Putri Giri",
-      "address": "Jl Gg Galunggung, Jatinegara Indah, Jakarta Timur",
-      "gender": "1",
-      "birth_date": "2024-08-04T17:00:00.000Z",
-      "input_date": "2024-08-14T11:45:25.049Z"
-    },
-    {
       "id": "4f74",
       "name": "Hanifah Anisa Putri",
       "address": "Jakarta Pusat",
@@ -81,36 +65,36 @@
       "input_date": "2024-08-14T11:57:18.909Z"
     },
     {
-      "id": "4f2b",
-      "name": "Faza Zarkasya Fitri",
-      "address": "Jl Cipinang Baru Bundar",
+      "id": "07ca",
+      "name": "Keiko Aaliya Hernowo Putri",
+      "address": "JL Anggrek Vanda, BSD, Banten",
       "gender": "1",
-      "birth_date": "2001-12-03T17:00:00.000Z",
-      "input_date": "2024-08-14T11:58:18.908Z"
+      "birth_date": "2001-09-12T17:00:00.000Z",
+      "input_date": "2024-08-14T12:53:06.805Z"
     },
     {
-      "id": "0796",
-      "name": "Salsabila ",
-      "address": "JL Pemuda",
+      "id": "9393",
+      "name": "Endriyani Rahayu",
+      "address": "Rawamangun Muka II E 51",
       "gender": "1",
-      "birth_date": "2001-12-19T17:00:00.000Z",
-      "input_date": "2024-08-14T11:59:18.817Z"
+      "birth_date": "2024-07-28T17:00:00.000Z",
+      "input_date": "2024-08-14T12:56:57.482Z"
     },
     {
-      "id": "5649",
+      "id": "834c",
       "name": "Endradi Wulandari",
       "address": "Rawamangun Muka II Blok E 51",
       "gender": "1",
-      "birth_date": "2024-07-29T17:00:00.000Z",
-      "input_date": "2024-08-14T12:31:56.235Z"
+      "birth_date": "2024-07-28T17:00:00.000Z",
+      "input_date": "2024-08-14T12:57:14.842Z"
     },
     {
-      "id": "5304",
-      "name": "Endradi Wulandari",
-      "address": "Rawamangun Muka II Blok E 51 RT 006 RW 012",
-      "gender": "1",
-      "birth_date": "2024-08-01T17:00:00.000Z",
-      "input_date": "2024-08-14T12:47:41.523Z"
+      "id": "6e90",
+      "name": "Endriyani Rahayu",
+      "address": "",
+      "gender": null,
+      "birth_date": null,
+      "input_date": "2024-08-14T12:57:24.258Z"
     }
   ]
 }
