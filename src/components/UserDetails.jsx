@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IoArrowBack } from "react-icons/io5";
 
-import { getBirthdayDateFormat, getGender } from "../utils";
+import { getBirthdayDateFormat, getGender, notify } from "../utils";
 
 const UserDetails = () => {
   const navigate = useNavigate();
@@ -32,6 +32,7 @@ const UserDetails = () => {
     } catch (error) {
       setLoadingFetchUser(false);
       console.error("Error while fetching user: ", error);
+      notify("failed get user details", "error");
     }
   };
 
