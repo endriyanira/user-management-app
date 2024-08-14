@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ shouldShow, onRequestClose, children, title }) => {
+const Modal = ({ shouldShow, children }) => {
   return (
     shouldShow && (
       <div
