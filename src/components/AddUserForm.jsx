@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
+
 import CustomDate from "./CustomDate";
 import Button from "./Button/Button";
 import ButtonLink from "./Button/ButtonLink";
+import { convertDateToISO } from "../utils";
 
 const AddUserForm = () => {
   const [userData, setUserData] = useState({
@@ -9,7 +12,10 @@ const AddUserForm = () => {
     address: "",
     gender: null,
     birth_date: null,
+    input_date: convertDateToISO(new Date()),
   });
+
+  const [loadingSubmit, setLoadingSubmit] = useState(false);
 
   const [showBirthdayDatePicker, setShowBirthdayDatePicker] = useState(false);
 
@@ -18,12 +24,24 @@ const AddUserForm = () => {
   };
 
   const handleBirthdayDate = (selectedDate) => {
-    setUserData({ ...userData, birth_date: selectedDate });
+    const date = convertDateToISO(selectedDate);
+    setUserData({ ...userData, birth_date: date });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userData);
+    setLoadingSubmit(true);
+    try {
+      const response = await axios({
+        url: "http://localhost:3030/users",
+        method: "POST",
+        data: userData,
+      });
+      setLoadingSubmit(false);
+    } catch (error) {
+      setLoadingSubmit(false);
+      console.error("Error while create new user: ", error);
+    }
   };
 
   return (
@@ -130,11 +148,19 @@ const AddUserForm = () => {
                 }
                 path={"/"}
               />
-              <Button
-                type={"submit"}
-                text={"Submit"}
-                className="h-[40px] px-3 bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-md before:ease-in-out after:ease-in-out shadow-blue-300 shadow-md"
-              />
+              {loadingSubmit ? (
+                <ButtonLink
+                  type={"button"}
+                  text={"Submit"}
+                  className="h-[40px] px-3 bg-blue-500  text-white font-medium rounded-md before:ease-in-out after:ease-in-out "
+                />
+              ) : (
+                <Button
+                  type={"submit"}
+                  text={"Submit"}
+                  className="h-[40px] px-3 bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-md before:ease-in-out after:ease-in-out shadow-blue-300 shadow-md"
+                />
+              )}
             </div>
           </div>
         </form>
