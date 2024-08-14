@@ -1,7 +1,7 @@
 import React from "react";
 import Datepicker from "tailwind-datepicker-react";
 
-const CustomDate = ({ handleChange, show, handleClose }) => {
+const CustomDate = ({ handleChange, show, handleClose, value }) => {
   const options = {
     title: "Birth Date",
     autoHide: true,
@@ -44,6 +44,7 @@ const CustomDate = ({ handleChange, show, handleClose }) => {
       onChange={handleChange}
       show={show}
       setShow={handleClose}
+      value={value && new Date(value)}
     />
   );
 };

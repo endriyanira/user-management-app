@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { VscOpenPreview } from "react-icons/vsc";
 
-import data from "../data/api.json";
 import {
   getBirthdayDateFormat,
   getFormattedInputDateString,
@@ -15,9 +15,10 @@ import DeleteConfirm from "./DeleteConfirm";
 import ButtonLink from "./Button/ButtonLink";
 
 const UserTable = () => {
+  const navigate = useNavigate();
   const [loadingUsers, setLoadingUsers] = useState(false);
   const [loadingDelete, setLoadingDelete] = useState(false);
-  const [users, setUsers] = useState(data.users);
+  const [users, setUsers] = useState(null);
   const [showDeleteConfirmationModal, setShowDeleteConfirmationModal] =
     useState(false);
   const [selectedUserToDelete, setSelectedUserToDelete] = useState(null);
@@ -28,12 +29,16 @@ const UserTable = () => {
   //     setShowDeleteConfirmationModal(false);
   //   };
 
+  const handleEditUser = (userId) => {
+    navigate(`/edit-user/`, { state: { userId: userId } });
+  };
+
   const handleDeleteUser = (userId) => {
     setShowDeleteConfirmationModal(true);
     setSelectedUserToDelete(userId);
   };
 
-  const handleDeleteUserById = async (userId) => {
+  const handleDeleteUserById = async () => {
     setLoadingDelete(true);
     try {
       await axios({
@@ -128,49 +133,53 @@ const UserTable = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, i) => (
-              <tr
-                key={`userKey-${user.id}`}
-                className={`bg-white text-gray-600 text-left border-b-[1px]`}
-              >
-                <td className=" px-4 py-2">{i + 1}</td>
-                <td className=" px-4 py-2 text-black font-normal">
-                  <p className="text-sm">{user.name}</p>
-                </td>
-                <td className=" px-4 py-2">
-                  <p className="text-sm text-gray-500">{user.address}</p>
-                </td>
-                <td className=" px-4 py-2 text-center">
-                  <p className="text-sm text-gray-500">
-                    {getGender(user.gender).toString()}
-                  </p>
-                </td>
-                <td className=" px-4 py-2">
-                  <p className="text-sm text-gray-500">
-                    {getBirthdayDateFormat(user.birth_date)}
-                  </p>
-                </td>
-                <td className=" px-4 py-2">
-                  <p className="text-sm text-gray-500">
-                    {getFormattedInputDateString(user.input_date)}
-                  </p>
-                </td>
-                <td className=" px-4 py-2 flex flex-row gap-3 items-center justify-center">
-                  <button className="p-2">
-                    <VscOpenPreview size={20} color="blue" />
-                  </button>
-                  <button className="p-2">
-                    <FiEdit2 size={20} color="blue" />
-                  </button>
-                  <button
-                    className="p-2"
-                    onClick={() => handleDeleteUser(user.id)}
-                  >
-                    <AiOutlineDelete size={20} color="blue" />
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {users &&
+              users.map((user, i) => (
+                <tr
+                  key={`userKey-${user.id}`}
+                  className={`bg-white text-gray-600 text-left border-b-[1px]`}
+                >
+                  <td className=" px-4 py-2">{i + 1}</td>
+                  <td className=" px-4 py-2 text-black font-normal">
+                    <p className="text-sm">{user.name}</p>
+                  </td>
+                  <td className=" px-4 py-2">
+                    <p className="text-sm text-gray-500">{user.address}</p>
+                  </td>
+                  <td className=" px-4 py-2 text-center">
+                    <p className="text-sm text-gray-500">
+                      {getGender(user.gender).toString()}
+                    </p>
+                  </td>
+                  <td className=" px-4 py-2">
+                    <p className="text-sm text-gray-500">
+                      {getBirthdayDateFormat(user.birth_date)}
+                    </p>
+                  </td>
+                  <td className=" px-4 py-2">
+                    <p className="text-sm text-gray-500">
+                      {getFormattedInputDateString(user.input_date)}
+                    </p>
+                  </td>
+                  <td className=" px-4 py-2 flex flex-row gap-3 items-center justify-center">
+                    <button className="p-2">
+                      <VscOpenPreview size={20} color="blue" />
+                    </button>
+                    <button
+                      className="p-2"
+                      onClick={() => handleEditUser(user.id)}
+                    >
+                      <FiEdit2 size={20} color="blue" />
+                    </button>
+                    <button
+                      className="p-2"
+                      onClick={() => handleDeleteUser(user.id)}
+                    >
+                      <AiOutlineDelete size={20} color="blue" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

@@ -23,6 +23,30 @@
       "gender": "1",
       "birth_date": "2024-07-27T17:00:00.000Z",
       "input_date": "2024-08-14T09:04:42.154Z"
+    },
+    {
+      "id": "ac29",
+      "name": "Endrina Adilah Shabirah",
+      "address": "Rawamangun Muka II Blok E 51",
+      "gender": "1",
+      "birth_date": "2024-07-29T17:00:00.000Z",
+      "input_date": "2024-08-14T09:09:00.260Z"
+    },
+    {
+      "id": "2387",
+      "name": "Endriyani Rahayu",
+      "address": "Rawamangun Muka II Blok E 51",
+      "gender": "1",
+      "birth_date": "2001-04-09T17:00:00.000Z",
+      "input_date": "2024-08-14T09:19:39.886Z"
+    },
+    {
+      "id": "767c",
+      "name": "Nugraha Dwitya Ramadhan",
+      "address": "Rasamala No. 12",
+      "gender": "1",
+      "birth_date": "1995-02-26T17:00:00.000Z",
+      "input_date": "2024-08-14T09:38:51.165Z"
     }
   ]
 }

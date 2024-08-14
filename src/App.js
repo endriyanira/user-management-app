@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import AddUserForm from "./components/AddUserForm";
 import UserTable from "./components/UserTable";
+import EditUserForm from "./components/EditUserForm";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<UserTable />} />
         <Route path="/add-user" element={<AddUserForm />} />
+        <Route path="/edit-user" element={<EditUserForm />} />
       </Routes>
     </div>
   );

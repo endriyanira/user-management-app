@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-import CustomDate from "./CustomDate";
-import Button from "./Button/Button";
-import ButtonLink from "./Button/ButtonLink";
 import { convertDateToISO } from "../utils";
+import CustomDate from "./CustomDate";
+import ButtonLink from "./Button/ButtonLink";
+import Button from "./Button/Button";
 
-const AddUserForm = () => {
+const EditUserForm = () => {
+  const location = useLocation();
+  const userId = location.state.userId;
+  const [loadingFetchUser, setLoadingFetchUser] = useState(false);
   const [userData, setUserData] = useState({
     name: "",
     address: "",
@@ -14,9 +18,7 @@ const AddUserForm = () => {
     birth_date: null,
     input_date: convertDateToISO(new Date()),
   });
-
   const [loadingSubmit, setLoadingSubmit] = useState(false);
-
   const [showBirthdayDatePicker, setShowBirthdayDatePicker] = useState(false);
 
   const handleChangeData = (e, key) => {
@@ -28,26 +30,31 @@ const AddUserForm = () => {
     setUserData({ ...userData, birth_date: date });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoadingSubmit(true);
+  const handleFetchDetailUser = async () => {
+    setLoadingFetchUser(true);
     try {
-      await axios({
-        url: "http://localhost:3030/users",
-        method: "POST",
-        data: userData,
+      const response = await axios({
+        url: `http://localhost:3030/users/${userId}`,
+        method: "GET",
       });
-      setLoadingSubmit(false);
+      const data = response.data;
+      setUserData(data);
+      setLoadingFetchUser(false);
     } catch (error) {
-      setLoadingSubmit(false);
-      console.error("Error while create new user: ", error);
+      setLoadingFetchUser(false);
+      console.error("Error while fetching user: ", error);
     }
   };
 
-  return (
+  useEffect(() => {
+    handleFetchDetailUser();
+  }, []);
+  return loadingFetchUser ? (
+    <div>Loading...</div>
+  ) : (
     <div className="add form container card w-full h-full justify-center flex px-8">
       <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
-        <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+        <form className="w-full max-w-lg">
           {/* Name */}
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
@@ -62,6 +69,7 @@ const AddUserForm = () => {
                 id="grid-name"
                 type="text"
                 placeholder="Endriyani"
+                value={userData.name}
                 onChange={(e) => handleChangeData(e, "name")}
                 required
               />
@@ -82,6 +90,7 @@ const AddUserForm = () => {
                 id="grid-address"
                 type="text"
                 placeholder="Rawamangun"
+                value={userData.address}
                 onChange={(e) => handleChangeData(e, "address")}
               />
             </div>
@@ -103,6 +112,7 @@ const AddUserForm = () => {
                     className="form-radio"
                     name="gender"
                     value={0}
+                    defaultChecked={userData.gender === "0"}
                     onClick={(e) => handleChangeData(e, "gender")}
                   />
                   <span className="ml-2">Male</span>
@@ -113,6 +123,7 @@ const AddUserForm = () => {
                     className="form-radio"
                     name="gender"
                     value={1}
+                    defaultChecked={userData.gender === "1"}
                     onClick={(e) => handleChangeData(e, "gender")}
                   />
                   <span className="ml-2">Female</span>
@@ -134,6 +145,7 @@ const AddUserForm = () => {
                 handleChange={handleBirthdayDate}
                 show={showBirthdayDatePicker}
                 handleClose={setShowBirthdayDatePicker}
+                value={userData.birth_date}
               />
             </div>
           </div>
@@ -169,4 +181,4 @@ const AddUserForm = () => {
   );
 };
 
-export default AddUserForm;
+export default EditUserForm;
