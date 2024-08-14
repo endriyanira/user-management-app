@@ -10,6 +10,7 @@ import Button from "./Button/Button";
 import ButtonLoading from "./Button/ButtonLoading";
 import Loading from "./Loading/Loading";
 import EmptyData from "./EmptyData";
+import TextInput from "./TextInput/TextInput";
 
 const EditUserForm = () => {
   const navigate = useNavigate();
@@ -96,45 +97,26 @@ const EditUserForm = () => {
         {userData.name && !loadingFetchUser && (
           <form className="w-full max-w-lg" onSubmit={handleSubmit}>
             {/* Name */}
-            <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full px-3">
-                <label
-                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  htmlFor="grid-name"
-                >
-                  Name <span className="text-red-600">*</span>
-                </label>
-                <input
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="grid-name"
-                  type="text"
-                  placeholder="Endriyani"
-                  value={userData.name}
-                  onChange={(e) => handleChangeData(e, "name")}
-                  required
-                />
-              </div>
-            </div>
+            <TextInput
+              label={"Name"}
+              htmlFor={"grid-name"}
+              placeholder={"Your name"}
+              value={userData.name}
+              handleOnChange={handleChangeData}
+              key={"name"}
+              required={true}
+            />
 
             {/* Address */}
-            <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full px-3">
-                <label
-                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  htmlFor="grid-address"
-                >
-                  Address
-                </label>
-                <input
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="grid-address"
-                  type="text"
-                  placeholder="Rawamangun"
-                  value={userData.address}
-                  onChange={(e) => handleChangeData(e, "address")}
-                />
-              </div>
-            </div>
+            <TextInput
+              label={"Address"}
+              htmlFor={"grid-address"}
+              placeholder={"Your address"}
+              value={userData.address}
+              handleOnChange={handleChangeData}
+              key={"name"}
+              required={false}
+            />
 
             {/* Gender */}
             <div className="flex flex-wrap -mx-3 mb-8">
