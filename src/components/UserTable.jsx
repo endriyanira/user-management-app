@@ -104,6 +104,7 @@ const UserTable = () => {
             className="h-[40px] px-3 bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-md before:ease-in-out after:ease-in-out shadow-blue-300 shadow-md"
           />
         </div>
+        {loadingUsers && <div> Loading...</div>}
         {users ? (
           <table className="table-auto rounded mt-8">
             <thead className="bg-white rounded border-b-[1px]">

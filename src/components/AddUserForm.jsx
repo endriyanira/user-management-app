@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
 import axios from "axios";
 
-import { convertDateToISO } from "../utils";
+import { convertDateToISO, notify } from "../utils";
 import CustomDate from "./CustomDate";
 import Button from "./Button/Button";
 import ButtonLink from "./Button/ButtonLink";
@@ -37,11 +37,15 @@ const AddUserForm = () => {
     e.preventDefault();
     setLoadingSubmit(true);
     try {
-      await axios({
+      const response = await axios({
         url: "http://localhost:3030/users",
         method: "POST",
         data: userData,
       });
+      console.log(response);
+      if (response.status === 201) {
+        notify("Success add new user", "success");
+      }
       setTimeout(() => {
         navigate("/");
         setLoadingSubmit(false);
@@ -49,6 +53,7 @@ const AddUserForm = () => {
     } catch (error) {
       setLoadingSubmit(false);
       console.error("Error while create new user: ", error);
+      notify("Error while adding new user", "error");
     }
   };
 

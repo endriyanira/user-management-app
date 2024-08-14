@@ -1,3 +1,6 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export const getGender = (g) => {
   return g === "0" ? "Male" : "Female";
 };
@@ -33,4 +36,16 @@ export const getFormattedInputDateString = (utcDateStr) => {
   const formattedDateString = `${formattedDateParts[0]} ${formattedDateParts[1]} ${formattedDateParts[2]} ${formattedDateParts[3]}`;
 
   return formattedDateString;
+};
+
+export const notify = (message, type) => {
+  toast(message, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    type: type,
+  });
 };
