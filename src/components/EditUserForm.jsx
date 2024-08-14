@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IoArrowBack } from "react-icons/io5";
 
-import { convertDateToISO } from "../utils";
+import { convertDateToISO, notify } from "../utils";
 import CustomDate from "./CustomDate";
 import ButtonLink from "./Button/ButtonLink";
 import Button from "./Button/Button";
@@ -65,7 +65,9 @@ const EditUserForm = () => {
         method: "PATCH",
         data: userData,
       });
-      const data = response.data;
+      if (response.status === 200) {
+        notify("sucess edit user", "success");
+      }
       setTimeout(() => {
         navigate("/");
         setLoadingSubmit(false);
@@ -73,6 +75,7 @@ const EditUserForm = () => {
     } catch (error) {
       setLoadingSubmit(false);
       console.error("Error while updating a user: ", error);
+      notify("error while editing user", "error");
     }
   };
 
