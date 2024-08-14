@@ -5,7 +5,11 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { VscOpenPreview } from "react-icons/vsc";
 
 import data from "../data/api.json";
-import { getGender } from "../utils";
+import {
+  getBirthdayDateFormat,
+  getFormattedInputDateString,
+  getGender,
+} from "../utils";
 import Modal from "./Modal";
 import DeleteConfirm from "./DeleteConfirm";
 import ButtonLink from "./Button/ButtonLink";
@@ -142,10 +146,14 @@ const UserTable = () => {
                   </p>
                 </td>
                 <td className=" px-4 py-2">
-                  <p className="text-sm text-gray-500">{user.birth_date}</p>
+                  <p className="text-sm text-gray-500">
+                    {getBirthdayDateFormat(user.birth_date)}
+                  </p>
                 </td>
                 <td className=" px-4 py-2">
-                  <p className="text-sm text-gray-500">{user.input_date}</p>
+                  <p className="text-sm text-gray-500">
+                    {getFormattedInputDateString(user.input_date)}
+                  </p>
                 </td>
                 <td className=" px-4 py-2 flex flex-row gap-3 items-center justify-center">
                   <button className="p-2">
