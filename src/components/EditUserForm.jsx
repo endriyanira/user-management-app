@@ -11,6 +11,16 @@ import ButtonLoading from "./Button/ButtonLoading";
 import Loading from "./Loading/Loading";
 import EmptyData from "./EmptyData";
 import TextInput from "./TextInput/TextInput";
+import RadioInput from "./RadioInput/RadioInput";
+
+const genderList = [
+  {
+    id: 1,
+    name: "Male",
+    value: "0",
+  },
+  { id: 2, name: "Female", value: "1" },
+];
 
 const EditUserForm = () => {
   const navigate = useNavigate();
@@ -27,6 +37,8 @@ const EditUserForm = () => {
   const [showBirthdayDatePicker, setShowBirthdayDatePicker] = useState(false);
 
   const handleChangeData = (e, key) => {
+    console.log(key);
+    console.log(e.target.value);
     setUserData({ ...userData, [key]: e.target.value });
   };
 
@@ -119,40 +131,13 @@ const EditUserForm = () => {
             />
 
             {/* Gender */}
-            <div className="flex flex-wrap -mx-3 mb-8">
-              <div className="w-full px-3">
-                <label
-                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  htmlFor="grid-gender"
-                >
-                  Gender
-                </label>
-                <div className="flex flex-row gap-4">
-                  <label className="inline-flex items-center">
-                    <input
-                      type="radio"
-                      className="form-radio"
-                      name="gender"
-                      value={0}
-                      defaultChecked={userData.gender === "0"}
-                      onClick={(e) => handleChangeData(e, "gender")}
-                    />
-                    <span className="ml-2">Male</span>
-                  </label>
-                  <label className="inline-flex items-center">
-                    <input
-                      type="radio"
-                      className="form-radio"
-                      name="gender"
-                      value={1}
-                      defaultChecked={userData.gender === "1"}
-                      onClick={(e) => handleChangeData(e, "gender")}
-                    />
-                    <span className="ml-2">Female</span>
-                  </label>
-                </div>
-              </div>
-            </div>
+            <RadioInput
+              label={"Gender"}
+              data={genderList}
+              name="gender"
+              handleOnClick={handleChangeData}
+              defaultCheckedVal={userData.gender}
+            />
 
             {/* Birth Date */}
             <div className="flex flex-wrap -mx-3 mb-8">
