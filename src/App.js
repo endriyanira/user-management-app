@@ -4,7 +4,7 @@ import UserTable from "./components/UserTable";
 
 function App() {
   return (
-    <div className="w-full h-full bg-gray-100 justify-center flex">
+    <div className="w-full min-h-screen bg-gray-100 justify-center flex">
       <Routes>
         <Route path="/" element={<UserTable />} />
         <Route path="/add-user" element={<AddUserForm />} />
