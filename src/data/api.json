@@ -52,18 +52,10 @@
       "id": "e184",
       "name": "Nugraha Dwitya Ramadhan",
       "address": "Rasamala No. 12",
-      "gender": "1",
+      "gender": "0",
       "birth_date": "1995-02-26T17:00:00.000Z",
       "input_date": "2024-08-14T14:23:12.824Z",
       "undefined": "0"
-    },
-    {
-      "id": "e70f",
-      "name": "Putri Larasati Larassoooooo",
-      "address": "",
-      "gender": "1",
-      "birth_date": "2000-09-12T17:00:00.000Z",
-      "input_date": "2024-08-14T14:56:41.306Z"
     },
     {
       "id": "6ee4",
