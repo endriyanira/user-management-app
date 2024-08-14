@@ -69,7 +69,7 @@ const UserTable = () => {
   };
 
   useEffect(() => {
-    // handleFetchUsers();
+    handleFetchUsers();
   }, []);
 
   return loadingUsers ? (

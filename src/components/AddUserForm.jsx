@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
 import axios from "axios";
 
+import { convertDateToISO } from "../utils";
 import CustomDate from "./CustomDate";
 import Button from "./Button/Button";
 import ButtonLink from "./Button/ButtonLink";
-import { convertDateToISO } from "../utils";
+import ButtonLoading from "./Button/ButtonLoading";
 
 const AddUserForm = () => {
   const navigate = useNavigate();
@@ -41,7 +42,10 @@ const AddUserForm = () => {
         method: "POST",
         data: userData,
       });
-      setLoadingSubmit(false);
+      setTimeout(() => {
+        navigate("/");
+        setLoadingSubmit(false);
+      }, 500);
     } catch (error) {
       setLoadingSubmit(false);
       console.error("Error while create new user: ", error);
@@ -159,7 +163,7 @@ const AddUserForm = () => {
                 path={"/"}
               />
               {loadingSubmit ? (
-                <ButtonLink
+                <ButtonLoading
                   type={"button"}
                   text={"Submit"}
                   className="h-[40px] px-3 bg-blue-500  text-white font-medium rounded-md before:ease-in-out after:ease-in-out "
