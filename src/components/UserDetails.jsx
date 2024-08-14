@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { IoArrowBack } from "react-icons/io5";
+
 import { getBirthdayDateFormat, getGender } from "../utils";
 
 const UserDetails = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const userId = location.state.userId;
   const [userData, setUserData] = useState({
     id: "",
     name: "",
-    adivress: "",
+    address: "",
     gender: null,
     birth_date: null,
     input_date: null,
@@ -40,7 +43,10 @@ const UserDetails = () => {
   ) : (
     <div className="adiv form container card w-full h-full justify-center flex px-8">
       <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
-        <div className="px-4 py-5 sm:px-6">
+        <div className="px-4 pb-5 pt-2 sm:px-6">
+          <button className="pb-5" onClick={() => navigate("/")}>
+            <IoArrowBack size={20} />
+          </button>
           <h3 className="text-lg leading-6 font-medium text-gray-900">
             User Info
           </h3>
