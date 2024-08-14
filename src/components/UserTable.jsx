@@ -41,6 +41,7 @@ const UserTable = () => {
       handleFetchUsers();
     } catch (error) {
       console.error("Error while delete user: ", error);
+      setLoadingDelete(false);
     }
   };
 
@@ -53,10 +54,11 @@ const UserTable = () => {
       });
       const data = response.data;
       setUsers(data);
+      setLoadingUsers(false);
     } catch (error) {
+      setLoadingUsers(false);
       console.error("Error while fetching users: ", error);
     }
-    setLoadingUsers(false);
   };
 
   useEffect(() => {

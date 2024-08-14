@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "./Button/Button";
 import ButtonLoading from "./Button/ButtonLoading";
 
 const DeleteConfirm = ({ confirmDelete, cancelDelete, loadingDelete }) => {
@@ -41,9 +40,9 @@ const DeleteConfirm = ({ confirmDelete, cancelDelete, loadingDelete }) => {
       <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
         {loadingDelete ? (
           <ButtonLoading
-            text={"Loading..."}
+            text={"Delete"}
             className={
-              "h-[40px] px-3 bg-red-200 text-white font-medium rounded-md before:ease-in-out after:ease-in-out"
+              "inline-flex w-full justify-center rounded-md bg-red-300 px-3 py-2 text-sm font-normal text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
             }
           />
         ) : (
