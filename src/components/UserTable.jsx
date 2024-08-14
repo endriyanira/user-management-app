@@ -9,6 +9,7 @@ import {
   getBirthdayDateFormat,
   getFormattedInputDateString,
   getGender,
+  notify,
 } from "../utils";
 import Modal from "./Modal";
 import DeleteConfirm from "./DeleteConfirm";
@@ -65,6 +66,7 @@ const UserTable = () => {
     } catch (error) {
       setLoadingUsers(false);
       console.error("Error while fetching users: ", error);
+      notify("error get users data", "error");
     }
   };
 
