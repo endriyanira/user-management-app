@@ -26,7 +26,7 @@ A ReactJS application that displays a table with user data and a form to add new
 
 ## API
 
-This application uses a dummy API in JSON format.
+This application uses a dummy API in JSON format with JSON-SERVER.
 
 ## Getting Started
 
@@ -34,8 +34,9 @@ To run this application, follow these steps:
 
 1. Clone the repository
 2. Install dependencies with `npm install`
-3. Start the application with `npm start`
-4. Open `http://localhost:3000` in your web browser
+3. run `json-server --watch ./src/data/api.json --port 3030`
+4. Start the application with `npm start`
+5. Open `http://localhost:3000` in your web browser
 
 ## Author
 
