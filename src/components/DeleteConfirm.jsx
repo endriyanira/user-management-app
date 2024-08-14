@@ -1,6 +1,8 @@
 import React from "react";
+import Button from "./Button/Button";
+import ButtonLoading from "./Button/ButtonLoading";
 
-const DeleteConfirm = ({ confirmDelete, cancelDelete }) => {
+const DeleteConfirm = ({ confirmDelete, cancelDelete, loadingDelete }) => {
   return (
     <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
       <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
@@ -37,17 +39,27 @@ const DeleteConfirm = ({ confirmDelete, cancelDelete }) => {
         </div>
       </div>
       <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-        <button
-          onClick={confirmDelete}
-          type="button"
-          className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-        >
-          Delete
-        </button>
+        {loadingDelete ? (
+          <ButtonLoading
+            text={"Loading..."}
+            className={
+              "h-[40px] px-3 bg-red-200 text-white font-medium rounded-md before:ease-in-out after:ease-in-out"
+            }
+          />
+        ) : (
+          <button
+            onClick={confirmDelete}
+            type="button"
+            className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-normal text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+          >
+            Delete
+          </button>
+        )}
+
         <button
           onClick={cancelDelete}
           type="button"
-          className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+          className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-normal text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
         >
           Cancel
         </button>

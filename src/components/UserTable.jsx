@@ -12,20 +12,36 @@ import ButtonLink from "./Button/ButtonLink";
 
 const UserTable = () => {
   const [loadingUsers, setLoadingUsers] = useState(false);
+  const [loadingDelete, setLoadingDelete] = useState(false);
   const [users, setUsers] = useState(data.users);
   const [showDeleteConfirmationModal, setShowDeleteConfirmationModal] =
     useState(false);
   const [selectedUserToDelete, setSelectedUserToDelete] = useState(null);
 
-  const filterUser = (userId) => {
-    const filteredUsers = users.filter((user) => user.id !== userId);
-    setUsers(filteredUsers);
-    setShowDeleteConfirmationModal(false);
-  };
+  //   const filterUser = (userId) => {
+  //     const filteredUsers = users.filter((user) => user.id !== userId);
+  //     setUsers(filteredUsers);
+  //     setShowDeleteConfirmationModal(false);
+  //   };
 
   const handleDeleteUser = (userId) => {
     setShowDeleteConfirmationModal(true);
     setSelectedUserToDelete(userId);
+  };
+
+  const handleDeleteUserById = async (userId) => {
+    setLoadingDelete(true);
+    try {
+      await axios({
+        url: `http://localhost:3030/users/${selectedUserToDelete}`,
+        method: "DELETE",
+      });
+      setLoadingDelete(false);
+      setShowDeleteConfirmationModal(false);
+      handleFetchUsers();
+    } catch (error) {
+      console.error("Error while delete user: ", error);
+    }
   };
 
   const handleFetchUsers = async () => {
@@ -56,7 +72,8 @@ const UserTable = () => {
         onRequestClose={() => setShowDeleteConfirmationModal((prev) => !prev)}
       >
         <DeleteConfirm
-          confirmDelete={() => filterUser(selectedUserToDelete)}
+          loadingDelete={loadingDelete}
+          confirmDelete={() => handleDeleteUserById(selectedUserToDelete)}
           cancelDelete={() => setShowDeleteConfirmationModal((prev) => !prev)}
         />
       </Modal>
