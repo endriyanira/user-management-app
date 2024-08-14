@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import CustomDate from "./CustomDate";
 
 const AddUserForm = () => {
+  const [userData, setUserData] = useState({
+    name: "",
+    address: "",
+    gender: null,
+    birth_date: null,
+  });
+
+  const [showBirthdayDatePicker, setShowBirthdayDatePicker] = useState(false);
+
+  const handleChangeData = (e, key) => {
+    console.log(e.target.value);
+    setUserData({ ...userData, [key]: e.target.value });
+  };
+
+  const handleBirthdayDate = (selectedDate) => {
+    setUserData({ ...userData, birth_date: selectedDate });
+  };
+
   return (
     <div className="add form container card w-full h-full justify-center flex px-8">
       <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
@@ -10,7 +29,7 @@ const AddUserForm = () => {
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-name"
+                htmlFor="grid-name"
               >
                 Name
               </label>
@@ -18,7 +37,8 @@ const AddUserForm = () => {
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-name"
                 type="text"
-                placeholder="Doe"
+                placeholder="Endriyani"
+                onClick={(e) => handleChangeData(e, "name")}
               />
             </div>
           </div>
@@ -28,7 +48,7 @@ const AddUserForm = () => {
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-address"
+                htmlFor="grid-address"
               >
                 Address
               </label>
@@ -37,56 +57,58 @@ const AddUserForm = () => {
                 id="grid-address"
                 type="text"
                 placeholder="Rawamangun"
+                onClick={(e) => handleChangeData(e, "address")}
               />
             </div>
           </div>
 
           {/* Gender */}
-          <div className="flex flex-wrap -mx-3 mb-10">
+          <div className="flex flex-wrap -mx-3 mb-8">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-gender"
+                htmlFor="grid-gender"
               >
                 Gender
               </label>
               <div className="flex flex-row gap-4">
-                <label class="inline-flex items-center">
+                <label className="inline-flex items-center">
                   <input
                     type="radio"
                     className="form-radio"
                     name="gender"
                     value={0}
+                    onClick={(e) => handleChangeData(e, "gender")}
                   />
-                  <span class="ml-2">Male</span>
+                  <span className="ml-2">Male</span>
                 </label>
-                <label class="inline-flex items-center">
+                <label className="inline-flex items-center">
                   <input
                     type="radio"
                     className="form-radio"
                     name="gender"
                     value={1}
+                    onClick={(e) => handleChangeData(e, "gender")}
                   />
-                  <span class="ml-2">Female</span>
+                  <span className="ml-2">Female</span>
                 </label>
               </div>
             </div>
           </div>
 
-          {/* Address */}
+          {/* Birth Date */}
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-birthday"
+                htmlFor="grid-birthday"
               >
-                Address
+                Birthday Date
               </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-address"
-                type="text"
-                placeholder="Rawamangun"
+              <CustomDate
+                handleChange={handleBirthdayDate}
+                show={showBirthdayDatePicker}
+                handleClose={setShowBirthdayDatePicker}
               />
             </div>
           </div>
