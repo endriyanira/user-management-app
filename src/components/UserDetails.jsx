@@ -4,6 +4,7 @@ import axios from "axios";
 import { IoArrowBack } from "react-icons/io5";
 
 import { getBirthdayDateFormat, getGender, notify } from "../utils";
+import Container from "./Container/Container";
 
 const UserDetails = () => {
   const navigate = useNavigate();
@@ -40,56 +41,50 @@ const UserDetails = () => {
     fetchUserDetails();
   }, []);
   return loadingFetchUser ? (
-    <div className="loading container card w-full h-full justify-center flex px-8">
-      <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
-        Loading...
-      </div>
-    </div>
+    <Container>Loading...</Container>
   ) : (
-    <div className="adiv form container card w-full h-full justify-center flex px-8">
-      <div className="flex flex-col py-10 bg-white px-8 my-20 rounded-xl sm:w-[450px] md:w-[500px] border-2">
-        <div className="px-4 pb-5 pt-2 sm:px-6">
-          <button className="pb-5" onClick={() => navigate("/")}>
-            <IoArrowBack size={20} />
-          </button>
-          <h3 className="text-lg leading-6 font-medium text-gray-900">
-            User Info
-          </h3>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500">
-            This is some information about the user.
-          </p>
-        </div>
-        <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
-          <div className="sm:divide-y sm:divide-gray-200">
-            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <div className="text-sm font-medium text-gray-500">Full name</div>
-              <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {userData.name}
-              </div>
+    <Container>
+      <div className="px-4 pb-5 pt-2 sm:px-6">
+        <button className="pb-5" onClick={() => navigate("/")}>
+          <IoArrowBack size={20} />
+        </button>
+        <h3 className="text-lg leading-6 font-medium text-gray-900">
+          User Info
+        </h3>
+        <p className="mt-1 max-w-2xl text-sm text-gray-500">
+          This is some information about the user.
+        </p>
+      </div>
+      <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
+        <div className="sm:divide-y sm:divide-gray-200">
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div className="text-sm font-medium text-gray-500">Full name</div>
+            <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {userData.name}
             </div>
-            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <div className="text-sm font-medium text-gray-500">Address</div>
-              <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {userData.address}
-              </div>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div className="text-sm font-medium text-gray-500">Address</div>
+            <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {userData.address}
             </div>
-            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <div className="text-sm font-medium text-gray-500">Gender</div>
-              <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {userData.gender && getGender(userData.gender)}
-              </div>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div className="text-sm font-medium text-gray-500">Gender</div>
+            <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {userData.gender && getGender(userData.gender)}
             </div>
-            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <div className="text-sm font-medium text-gray-500">Birthday</div>
-              <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {userData.birth_date &&
-                  getBirthdayDateFormat(userData.birth_date)}
-              </div>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div className="text-sm font-medium text-gray-500">Birthday</div>
+            <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {userData.birth_date &&
+                getBirthdayDateFormat(userData.birth_date)}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
