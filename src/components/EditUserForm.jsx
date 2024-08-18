@@ -108,6 +108,7 @@ const EditUserForm = () => {
             handleOnChange={handleChangeData}
             name="name"
             required={true}
+            type={"text"}
           />
 
           {/* Address */}

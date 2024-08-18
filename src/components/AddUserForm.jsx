@@ -78,6 +78,7 @@ const AddUserForm = () => {
           handleOnChange={handleChangeData}
           name="name"
           required={true}
+          type={"text"}
         />
 
         {/* Address */}
